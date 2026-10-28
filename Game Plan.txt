@@ -20,3 +20,6 @@ Game Plan
     5. GROUP BY SUM, AVG, COUNT etc
     6. IN
     7. UPDATE
+
+3. Discussion of complexity
+4. Submission as PDF
