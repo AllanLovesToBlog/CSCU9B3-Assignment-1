@@ -8,4 +8,15 @@ Game Plan
     label tables with PK, FK etc
     no many to many relationships else useless table
     break many to many relationship and use intermediary juction table
+    data to be seeded need to be a .txt or csv?? file that can be imported to sql database
     
+    
+
+2. SQL statements to run
+    1. LIKE
+    2. use LOAD DATA INFILE to import csv
+    3. give example INSERT statement for each entity
+    4. use > to select subset of data
+    5. GROUP BY SUM, AVG, COUNT etc
+    6. IN
+    7. UPDATE
