@@ -1,0 +1,11 @@
+Game Plan
+1. Requirements:
+    Topic (approved by lec), 
+    ERD diagram (using deaw.io), 
+    5 tables, 
+    normalize said tables 1NF 2NF, 3NF, 
+    seed tables with sample data (10 rows each table), 
+    label tables with PK, FK etc
+    no many to many relationships else useless table
+    break many to many relationship and use intermediary juction table
+    
