@@ -1,0 +1,18 @@
+1. My topic (approved by lec)
+    The database schema will be data from healthcare insurance claims
+    and will be used to train a fraud detection AI model. The schema 
+    will contain 5 tables namely claims_data (containing user claims 
+    used for insurance), ailment_medicine (contains drug ID and the 
+    ailment it cures, dosage, drug price etc), providers (containing
+    list of licensed medical providers), members (contains personal 
+    customer data) and ICD_10_ailment_description (contains the official 
+    WHO list of ailments and their ICD 10 codes)
+
+2. Tables
+    1. claims_data - (claim_id[PK], members_id[FK], provider_id[FK], icd_10_code[FK],
+                      service_date, claim_type, billed_amount, paid_amount, fraud_score)
+    
+    2. members - (member_id[PK], member_name, gender, age)
+    3. providers - (provider_id[PK], provider_name, provider_status)
+    4. ICD_10_ailment_description - (icd_10_code[PK], ailment_name, description)
+    5. ailment_medicine - (drug_id[PK], icd_10_code[FK], drug_name, dosage, price)
