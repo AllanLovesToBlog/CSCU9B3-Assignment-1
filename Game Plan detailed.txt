@@ -8,10 +8,30 @@
     customer data) and ICD_10_ailment_description (contains the official 
     WHO list of ailments and their ICD 10 codes)
 
-2. Tables
+2. Tables schema
     1. claims_data - (claim_id[PK], members_id[FK], provider_id[FK], icd_10_code[FK],
                       service_date, claim_type, billed_amount, paid_amount, fraud_score)
     2. members - (member_id[PK], member_name, gender, age)
     3. providers - (provider_id[PK], provider_name, provider_status)
     4. ICD_10_ailment_description - (icd_10_code[PK], ailment_name, description)
     5. ailment_medicine - (drug_id[PK], icd_10_code[FK], drug_name, dosage, price)
+
+3. Sample data inserted into CSV files using Excel
+
+4. insert into providers(provider_id, provider_name, provider_status) values
+   (11, "Cambridge Health Pharmacy","Inactive");
+
+ERRORS:
+MariaDB [3602723_Assignment_1]> LOAD DATA INFILE 'Desktop/Uni/CSCU9B3 Databases/CSCU9B3-Assignment-1/CSVs 2 import/ailment_medicine.csv' INTO TABLE ailment_medicine FIELDS TERMINATED BY ',' IGNORE 1 LINES;
+ERROR 1290 (HY000): The MariaDB server is running with the --secure-file-priv option so it cannot execute this statement
+MariaDB [3602723_Assignment_1]>
+
+ERROR 4166 (HY000): The used command is not allowed because the MariaDB server or client has disabled the local infile capability
+MariaDB [3602723_Assignment_1]> SET GLOBAL local_infile = 1;
+Query OK, 0 rows affected (0.000 sec)
+
+MariaDB [3602723_Assignment_1]> LOAD DATA LOCAL INFILE 'Desktop/Uni/CSCU9B3 Databases/CSCU9B3-Assignment-1/CSVs 2 import/ailment_medicine.csv' INTO TABLE ailment_medicine FIELDS TERMINATED BY ',' IGNORE 1 LINES;
+ERROR 4166 (HY000): The used command is not allowed because the MariaDB server or client has disabled the local infile capability
+MariaDB [3602723_Assignment_1]>
+
+SOLUTION: mysql --local-infile=1 -u root -p
