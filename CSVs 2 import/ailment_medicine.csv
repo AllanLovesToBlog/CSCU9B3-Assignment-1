@@ -1,0 +1,11 @@
+drug_id,icd_10_code,drug_name,dosage,price
+2001,J06.9,Acetaminophen,500 mg,8.99
+2002,E11.9,Metformin,500 mg twice daily,12.50
+2003,I10,Lisinopril,10 mg once daily,9.75
+2004,M54.50,Ibuprofen,200 mg,6.49
+2005,K21.9,Omeprazole,20 mg once daily,11.25
+2006,J45.909,Albuterol inhaler,90 mcg,24.99
+2007,G43.909,Sumatriptan,50 mg,18.00
+2008,F41.9,Sertraline,25 mg,14.25
+2009,N39.0,Nitrofurantoin,100 mg twice daily,16.80
+2010,R51.9,Aspirin,325 mg,5.99
