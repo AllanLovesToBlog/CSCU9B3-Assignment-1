@@ -18,8 +18,14 @@
 
 3. Sample data inserted into CSV files using Excel
 
-4. insert into providers(provider_id, provider_name, provider_status) values
-   (11, "Cambridge Health Pharmacy","Inactive");
+4. Executed SQL Quesries no. 1 to 6
+    - INSERT INTO statement - insert into providers(provider_id, provider_name, provider_status) values
+                              (11, "Cambridge Health Pharmacy","Inactive");
+    - LEFT JOIN statement - select medicine.drug_name, ailment.ailment_name from ailment_medicine as medicine
+                            left join ICD_10_ailment_description as ailment
+                            on medicine.icd_10_code = ailment.icd_10_code;
+    - > Statement - select drug_name, price from ailment_medicine where price>15;
+    - 
 
 ERRORS:
 MariaDB [3602723_Assignment_1]> LOAD DATA INFILE 'Desktop/Uni/CSCU9B3 Databases/CSCU9B3-Assignment-1/CSVs 2 import/ailment_medicine.csv' INTO TABLE ailment_medicine FIELDS TERMINATED BY ',' IGNORE 1 LINES;
