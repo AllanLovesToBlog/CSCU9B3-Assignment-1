@@ -16,6 +16,54 @@
     4. ICD_10_ailment_description - (icd_10_code[PK], ailment_name, description)
     5. ailment_medicine - (drug_id[PK], icd_10_code[FK], drug_name, dosage, price)
 
+    Creating Schema's Tables
+    CREATE TABLE members (
+    member_id INTEGER PRIMARY KEY,
+    member_name VARCHAR(150) NOT NULL,
+    gender VARCHAR(30),
+    age INTEGER
+    );
+
+    CREATE TABLE providers (
+        provider_id INTEGER PRIMARY KEY,
+        provider_name VARCHAR(150) NOT NULL,
+        provider_status VARCHAR(50)
+    );
+
+    CREATE TABLE ICD_10_ailment_description (
+        icd_10_code VARCHAR(20) PRIMARY KEY,
+        ailment_name VARCHAR(200) NOT NULL,
+        description TEXT
+    );
+
+    CREATE TABLE claims_data (
+        claim_id INTEGER PRIMARY KEY,
+        members_id INTEGER NOT NULL,
+        provider_id INTEGER NOT NULL,
+        icd_10_code VARCHAR(20) NOT NULL,
+        service_date DATE,
+        claim_type VARCHAR(50),
+        billed_amount DECIMAL(12, 2),
+        paid_amount DECIMAL(12, 2),
+        fraud_score DECIMAL(5, 4),
+        CONSTRAINT fk_claims_member
+            FOREIGN KEY (members_id) REFERENCES members (member_id),
+        CONSTRAINT fk_claims_provider
+            FOREIGN KEY (provider_id) REFERENCES providers (provider_id),
+        CONSTRAINT fk_claims_ailment
+            FOREIGN KEY (icd_10_code) REFERENCES ICD_10_ailment_description (icd_10_code)
+    );
+
+    CREATE TABLE ailment_medicine (
+        drug_id INTEGER PRIMARY KEY,
+        icd_10_code VARCHAR(20) NOT NULL,
+        drug_name VARCHAR(150) NOT NULL,
+        dosage VARCHAR(100),
+        price DECIMAL(12, 2),
+        CONSTRAINT fk_medicine_ailment
+            FOREIGN KEY (icd_10_code) REFERENCES ICD_10_ailment_description (icd_10_code)
+    );
+
 3. Sample data inserted into CSV files using Excel
 
 4. Executed SQL Quesries no. 1 to 6
